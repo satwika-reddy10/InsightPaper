@@ -1,8 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { FaFileUpload, FaBrain, FaQuestionCircle } from "react-icons/fa";
 import "./LandingPage.css";
 
 function LandingPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="landing-page">
       {/* Navigation Bar */}
@@ -12,7 +15,9 @@ function LandingPage() {
           <a href="#features">Features</a>
           <a href="#how-it-works">How It Works</a>
           <a href="#contact">Contact</a>
-          <button className="nav-btn">Get Started</button>
+          <button className="nav-btn" onClick={(e) => { e.preventDefault(); navigate("/login"); }}>
+            Get Started
+          </button>
         </div>
       </nav>
 
@@ -23,7 +28,9 @@ function LandingPage() {
           <p>Upload papers, get instant insights, and ask AI-powered questions.</p>
           <div className="btn-container">
             <button className="btn primary-btn">Continue as Guest</button>
-            <button className="btn secondary-btn">Sign In or Register</button>
+            <button className="btn secondary-btn" onClick={(e) => { e.preventDefault(); navigate("/login"); }}>
+              Sign In or Register
+            </button>
           </div>
         </div>
       </header>
